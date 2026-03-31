@@ -1,0 +1,15 @@
+C:\Users\JM\source\repos\Sistema de Paqueteria\Sistema de Paqueteria\bin\Debug\Sistema de Paqueteria.exe.config
+C:\Users\JM\source\repos\Sistema de Paqueteria\Sistema de Paqueteria\bin\Debug\Sistema de Paqueteria.exe
+C:\Users\JM\source\repos\Sistema de Paqueteria\Sistema de Paqueteria\bin\Debug\Sistema de Paqueteria.pdb
+C:\Users\JM\source\repos\Sistema de Paqueteria\Sistema de Paqueteria\bin\Debug\Bunifu_UI_v1.52.dll
+C:\Users\JM\source\repos\Sistema de Paqueteria\Sistema de Paqueteria\bin\Debug\Newtonsoft.Json.dll
+C:\Users\JM\source\repos\Sistema de Paqueteria\Sistema de Paqueteria\bin\Debug\Newtonsoft.Json.xml
+C:\Users\JM\source\repos\Sistema de Paqueteria\Sistema de Paqueteria\obj\Debug\PacketWatch.csproj.AssemblyReference.cache
+C:\Users\JM\source\repos\Sistema de Paqueteria\Sistema de Paqueteria\obj\Debug\Sistema de Paqueteria.exe.config
+C:\Users\JM\source\repos\Sistema de Paqueteria\Sistema de Paqueteria\obj\Debug\Sistema_de_Paqueteria.Form1.resources
+C:\Users\JM\source\repos\Sistema de Paqueteria\Sistema de Paqueteria\obj\Debug\Sistema_de_Paqueteria.Properties.Resources.resources
+C:\Users\JM\source\repos\Sistema de Paqueteria\Sistema de Paqueteria\obj\Debug\PacketWatch.csproj.GenerateResource.cache
+C:\Users\JM\source\repos\Sistema de Paqueteria\Sistema de Paqueteria\obj\Debug\PacketWatch.csproj.CoreCompileInputs.cache
+C:\Users\JM\source\repos\Sistema de Paqueteria\Sistema de Paqueteria\obj\Debug\PacketWa.02E4ADE2.Up2Date
+C:\Users\JM\source\repos\Sistema de Paqueteria\Sistema de Paqueteria\obj\Debug\Sistema de Paqueteria.exe
+C:\Users\JM\source\repos\Sistema de Paqueteria\Sistema de Paqueteria\obj\Debug\Sistema de Paqueteria.pdb
