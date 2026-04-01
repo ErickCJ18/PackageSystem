@@ -1,6 +1,6 @@
 ﻿namespace Sistema_de_Paqueteria
 {
-    partial class Form1
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -31,8 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnTop = new System.Windows.Forms.Panel();
-            this.pbExit = new System.Windows.Forms.PictureBox();
             this.pnScreen = new System.Windows.Forms.Panel();
+            this.btnDash = new System.Windows.Forms.Button();
+            this.tbFilter = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
@@ -54,14 +55,19 @@
             this.lblDecor2 = new System.Windows.Forms.Label();
             this.gridView = new System.Windows.Forms.DataGridView();
             this.lblStand1 = new System.Windows.Forms.Label();
-            this.pbDecor1 = new System.Windows.Forms.PictureBox();
             this.DragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.pbTracker = new System.Windows.Forms.PictureBox();
+            this.pbExport = new System.Windows.Forms.PictureBox();
+            this.pbDecor1 = new System.Windows.Forms.PictureBox();
+            this.pbExit = new System.Windows.Forms.PictureBox();
             this.pnTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbExit)).BeginInit();
             this.pnScreen.SuspendLayout();
             this.pnManager.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTracker)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbExport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDecor1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbExit)).BeginInit();
             this.SuspendLayout();
             // 
             // pnTop
@@ -74,20 +80,13 @@
             this.pnTop.Size = new System.Drawing.Size(1251, 38);
             this.pnTop.TabIndex = 0;
             // 
-            // pbExit
-            // 
-            this.pbExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbExit.Image = global::Sistema_de_Paqueteria.Properties.Resources.Close_app;
-            this.pbExit.Location = new System.Drawing.Point(1216, 3);
-            this.pbExit.Name = "pbExit";
-            this.pbExit.Size = new System.Drawing.Size(32, 32);
-            this.pbExit.TabIndex = 0;
-            this.pbExit.TabStop = false;
-            this.pbExit.Click += new System.EventHandler(this.pbExit_Click);
-            // 
             // pnScreen
             // 
             this.pnScreen.BackColor = System.Drawing.SystemColors.Menu;
+            this.pnScreen.Controls.Add(this.pbTracker);
+            this.pnScreen.Controls.Add(this.pbExport);
+            this.pnScreen.Controls.Add(this.btnDash);
+            this.pnScreen.Controls.Add(this.tbFilter);
             this.pnScreen.Controls.Add(this.btnDelete);
             this.pnScreen.Controls.Add(this.btnEdit);
             this.pnScreen.Controls.Add(this.btnNew);
@@ -100,6 +99,41 @@
             this.pnScreen.Name = "pnScreen";
             this.pnScreen.Size = new System.Drawing.Size(1251, 627);
             this.pnScreen.TabIndex = 1;
+            // 
+            // btnDash
+            // 
+            this.btnDash.BackColor = System.Drawing.Color.BurlyWood;
+            this.btnDash.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDash.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnDash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDash.Font = new System.Drawing.Font("Bahnschrift SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDash.ForeColor = System.Drawing.Color.Black;
+            this.btnDash.Location = new System.Drawing.Point(603, 555);
+            this.btnDash.Name = "btnDash";
+            this.btnDash.Size = new System.Drawing.Size(191, 38);
+            this.btnDash.TabIndex = 30;
+            this.btnDash.Text = "Ver Panel de Usuario";
+            this.btnDash.UseVisualStyleBackColor = false;
+            this.btnDash.Click += new System.EventHandler(this.btnDash_Click);
+            // 
+            // tbFilter
+            // 
+            this.tbFilter.BorderColorFocused = System.Drawing.Color.Blue;
+            this.tbFilter.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbFilter.BorderColorMouseHover = System.Drawing.Color.Blue;
+            this.tbFilter.BorderThickness = 3;
+            this.tbFilter.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbFilter.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbFilter.isPassword = false;
+            this.tbFilter.Location = new System.Drawing.Point(505, 112);
+            this.tbFilter.Margin = new System.Windows.Forms.Padding(4);
+            this.tbFilter.Name = "tbFilter";
+            this.tbFilter.Size = new System.Drawing.Size(315, 35);
+            this.tbFilter.TabIndex = 29;
+            this.tbFilter.Text = "Código o Contenido...";
+            this.tbFilter.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbFilter.OnValueChanged += new System.EventHandler(this.tbFilter_OnValueChanged);
             // 
             // btnDelete
             // 
@@ -359,6 +393,38 @@
             this.lblStand1.TabIndex = 1;
             this.lblStand1.Text = "Paquetes";
             // 
+            // DragControl
+            // 
+            this.DragControl.Fixed = true;
+            this.DragControl.Horizontal = true;
+            this.DragControl.TargetControl = this.pnTop;
+            this.DragControl.Vertical = true;
+            // 
+            // pbTracker
+            // 
+            this.pbTracker.BackColor = System.Drawing.SystemColors.GrayText;
+            this.pbTracker.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbTracker.Image = global::Sistema_de_Paqueteria.Properties.Resources.icons8_señal_rfid_48;
+            this.pbTracker.Location = new System.Drawing.Point(402, 106);
+            this.pbTracker.Name = "pbTracker";
+            this.pbTracker.Size = new System.Drawing.Size(45, 41);
+            this.pbTracker.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbTracker.TabIndex = 32;
+            this.pbTracker.TabStop = false;
+            this.pbTracker.Click += new System.EventHandler(this.pbTracker_Click);
+            // 
+            // pbExport
+            // 
+            this.pbExport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbExport.Image = global::Sistema_de_Paqueteria.Properties.Resources.decor4;
+            this.pbExport.Location = new System.Drawing.Point(453, 106);
+            this.pbExport.Name = "pbExport";
+            this.pbExport.Size = new System.Drawing.Size(45, 41);
+            this.pbExport.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbExport.TabIndex = 31;
+            this.pbExport.TabStop = false;
+            this.pbExport.Click += new System.EventHandler(this.pbExport_Click);
+            // 
             // pbDecor1
             // 
             this.pbDecor1.Image = global::Sistema_de_Paqueteria.Properties.Resources.decor1;
@@ -369,14 +435,18 @@
             this.pbDecor1.TabIndex = 0;
             this.pbDecor1.TabStop = false;
             // 
-            // DragControl
+            // pbExit
             // 
-            this.DragControl.Fixed = true;
-            this.DragControl.Horizontal = true;
-            this.DragControl.TargetControl = this.pnTop;
-            this.DragControl.Vertical = true;
+            this.pbExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbExit.Image = global::Sistema_de_Paqueteria.Properties.Resources.Close_app;
+            this.pbExit.Location = new System.Drawing.Point(1216, 3);
+            this.pbExit.Name = "pbExit";
+            this.pbExit.Size = new System.Drawing.Size(32, 32);
+            this.pbExit.TabIndex = 0;
+            this.pbExit.TabStop = false;
+            this.pbExit.Click += new System.EventHandler(this.pbExit_Click);
             // 
-            // Form1
+            // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -384,17 +454,19 @@
             this.Controls.Add(this.pnScreen);
             this.Controls.Add(this.pnTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.pnTop.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbExit)).EndInit();
             this.pnScreen.ResumeLayout(false);
             this.pnScreen.PerformLayout();
             this.pnManager.ResumeLayout(false);
             this.pnManager.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTracker)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbExport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDecor1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbExit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -427,6 +499,10 @@
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
+        private Bunifu.Framework.UI.BunifuMetroTextbox tbFilter;
+        private System.Windows.Forms.Button btnDash;
+        private System.Windows.Forms.PictureBox pbExport;
+        private System.Windows.Forms.PictureBox pbTracker;
     }
 }
 
