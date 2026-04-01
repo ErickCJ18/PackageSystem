@@ -1,6 +1,6 @@
 ﻿namespace Sistema_de_Paqueteria
 {
-    partial class Form1
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -33,6 +33,7 @@
             this.pnTop = new System.Windows.Forms.Panel();
             this.pbExit = new System.Windows.Forms.PictureBox();
             this.pnScreen = new System.Windows.Forms.Panel();
+            this.tbFilter = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
@@ -56,6 +57,7 @@
             this.lblStand1 = new System.Windows.Forms.Label();
             this.pbDecor1 = new System.Windows.Forms.PictureBox();
             this.DragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.btnDash = new System.Windows.Forms.Button();
             this.pnTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).BeginInit();
             this.pnScreen.SuspendLayout();
@@ -88,6 +90,8 @@
             // pnScreen
             // 
             this.pnScreen.BackColor = System.Drawing.SystemColors.Menu;
+            this.pnScreen.Controls.Add(this.btnDash);
+            this.pnScreen.Controls.Add(this.tbFilter);
             this.pnScreen.Controls.Add(this.btnDelete);
             this.pnScreen.Controls.Add(this.btnEdit);
             this.pnScreen.Controls.Add(this.btnNew);
@@ -100,6 +104,25 @@
             this.pnScreen.Name = "pnScreen";
             this.pnScreen.Size = new System.Drawing.Size(1251, 627);
             this.pnScreen.TabIndex = 1;
+            // 
+            // tbFilter
+            // 
+            this.tbFilter.BorderColorFocused = System.Drawing.Color.Blue;
+            this.tbFilter.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbFilter.BorderColorMouseHover = System.Drawing.Color.Blue;
+            this.tbFilter.BorderThickness = 3;
+            this.tbFilter.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbFilter.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbFilter.isPassword = false;
+            this.tbFilter.Location = new System.Drawing.Point(505, 112);
+            this.tbFilter.Margin = new System.Windows.Forms.Padding(4);
+            this.tbFilter.Name = "tbFilter";
+            this.tbFilter.Size = new System.Drawing.Size(315, 35);
+            this.tbFilter.TabIndex = 29;
+            this.tbFilter.Text = "Código o Contenido...";
+            this.tbFilter.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbFilter.OnValueChanged += new System.EventHandler(this.tbFilter_OnValueChanged);
             // 
             // btnDelete
             // 
@@ -376,7 +399,23 @@
             this.DragControl.TargetControl = this.pnTop;
             this.DragControl.Vertical = true;
             // 
-            // Form1
+            // btnDash
+            // 
+            this.btnDash.BackColor = System.Drawing.Color.BurlyWood;
+            this.btnDash.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDash.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnDash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDash.Font = new System.Drawing.Font("Bahnschrift SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDash.ForeColor = System.Drawing.Color.Black;
+            this.btnDash.Location = new System.Drawing.Point(603, 555);
+            this.btnDash.Name = "btnDash";
+            this.btnDash.Size = new System.Drawing.Size(191, 38);
+            this.btnDash.TabIndex = 30;
+            this.btnDash.Text = "Ver Panel de Usuario";
+            this.btnDash.UseVisualStyleBackColor = false;
+            this.btnDash.Click += new System.EventHandler(this.btnDash_Click);
+            // 
+            // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -384,7 +423,7 @@
             this.Controls.Add(this.pnScreen);
             this.Controls.Add(this.pnTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.pnTop.ResumeLayout(false);
@@ -427,6 +466,8 @@
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
+        private Bunifu.Framework.UI.BunifuMetroTextbox tbFilter;
+        private System.Windows.Forms.Button btnDash;
     }
 }
 
