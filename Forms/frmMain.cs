@@ -312,5 +312,14 @@ namespace Sistema_de_Paqueteria
 
             MessageBox.Show("Reporte exportado correctamente!");
         }
+
+        private void pbTracker_Click(object sender, EventArgs e)
+        {
+            frmTracker frm = new frmTracker();
+            if (!frm.Visible)
+            {
+                frm.Show();
+            }
+        }
     }
 }
