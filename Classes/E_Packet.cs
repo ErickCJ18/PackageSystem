@@ -24,4 +24,19 @@ namespace Sistema_de_Paqueteria
         public float P_cost { get => p_cost; set => p_cost = value; }
         public float P_vol { get => p_vol; set => p_vol = value; }
     }
+
+    public class User 
+    {
+        private string u_name;
+        private string u_pass;
+
+        public string U_name { get => u_name; set => u_name = value; }
+        public string U_pass { get => u_pass; set => u_pass = value; }
+    }
+
+    public class RootData
+    {
+        public Dictionary<string, User> users { get; set; } = new Dictionary<string, User>();
+        public Dictionary<string, Package> packages { get; set; } = new Dictionary<string, Package>();
+    }
 }
