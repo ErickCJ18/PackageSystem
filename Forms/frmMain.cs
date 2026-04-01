@@ -108,6 +108,11 @@ namespace Sistema_de_Paqueteria
             }
 
             return lista;
+
+            if (root.packages == null)
+                root.packages = new Dictionary<string, Package>();
+
+            return root.packages.Values.ToList();
         }
 
         //////////////////////

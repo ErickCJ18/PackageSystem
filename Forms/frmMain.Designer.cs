@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnTop = new System.Windows.Forms.Panel();
             this.pnScreen = new System.Windows.Forms.Panel();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -328,6 +329,8 @@
             this.gridView.AllowUserToDeleteRows = false;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Menu;
             this.gridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Menu;
+            this.gridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.gridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridView.GridColor = System.Drawing.SystemColors.Menu;
             this.gridView.Location = new System.Drawing.Point(12, 154);
@@ -397,6 +400,7 @@
             this.tbFilter.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.tbFilter.OnValueChanged += new System.EventHandler(this.tbFilter_OnValueChanged);
             // 
+
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
