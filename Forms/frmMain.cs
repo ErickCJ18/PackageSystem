@@ -13,26 +13,24 @@ using Newtonsoft.Json;
 
 namespace Sistema_de_Paqueteria
 {
-    public partial class Form1 : Form
+    public partial class frmMain : Form
     {
 
         string ruta = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "package_system.json");
         bool packageEditing = false;
-        public Form1()
+        public frmMain()
         {
             InitializeComponent();
             turnOffPanel();
             // pequeño check de seguridad
-            if (File.Exists(ruta)) 
+            if (File.Exists(ruta))
             {
                 refreshDGV();
             }
-            else 
+            else
             {
-                // crea el archivo
-                Dictionary<string, Package> packages = new Dictionary<string, Package>();
-                string json = JsonConvert.SerializeObject(packages);
-                //Dictionary<string, User> users = new Dictionary<string, User>();
+                var root = new RootData();
+                string json = JsonConvert.SerializeObject(root, Formatting.Indented);
                 File.WriteAllText(ruta, json);
             }
 
@@ -88,14 +86,12 @@ namespace Sistema_de_Paqueteria
         private List<Package> readPackages()
         {
             string json = File.ReadAllText(ruta);
+            var root = JsonConvert.DeserializeObject<RootData>(json) ?? new RootData();
 
-            var packages = JsonConvert.DeserializeObject<Dictionary<string, Package>>(json);
-            if (packages == null)
-            {
-                packages = new Dictionary<string, Package>();
-            }
+            if (root.packages == null)
+                root.packages = new Dictionary<string, Package>();
 
-            return packages.Values.ToList();
+            return root.packages.Values.ToList();
         }
 
         //////////////////////
@@ -153,57 +149,44 @@ namespace Sistema_de_Paqueteria
                 P_ETA = dtp.Value,
                 P_weight = float.Parse(tbWeight.Text),
                 P_vol = float.Parse(tbVol.Text),
-                P_cost = (float.Parse(tbWeight.Text) * 189)
+                P_cost = float.Parse(tbWeight.Text) * 189
             };
 
-            if (packageEditing) 
+            string json = File.ReadAllText(ruta);
+            var root = JsonConvert.DeserializeObject<RootData>(json) ?? new RootData();
+
+            if (root.packages == null)
+                root.packages = new Dictionary<string, Package>();
+
+            string key = newPackage.P_code.ToString();
+
+            if (packageEditing)
             {
-                string json = File.ReadAllText(ruta);
-                var packages = JsonConvert.DeserializeObject<Dictionary<string, Package>>(json);
+                if (root.packages.ContainsKey(key))
+                    root.packages[key] = newPackage;
 
-                if (packages == null)
-                {
-                    packages = new Dictionary<string, Package>();
-                }
-
-                if (packages.ContainsKey(tbCode.Text))
-                {
-                    packages[tbCode.Text] = newPackage;
-                }
-
-                string updatedJson = JsonConvert.SerializeObject(packages, Formatting.Indented);
-                File.WriteAllText(ruta, updatedJson);
                 MessageBox.Show("Paquete editado!");
             }
-            else 
+            else
             {
-                string json = File.ReadAllText(ruta);
-                var packages = JsonConvert.DeserializeObject<Dictionary<string, Package>>(json);
-
-                if (packages == null)
-                {
-                    packages = new Dictionary<string, Package>();
-                }
-
-                string key = newPackage.P_code.ToString();
-
-                if (packages.ContainsKey(key))
+                if (root.packages.ContainsKey(key))
                 {
                     MessageBox.Show("YA HAY UN PAQUETE CON ESE CODIGO!");
                     return;
                 }
 
-                packages.Add(key, newPackage);
-
-                string updatedJson = JsonConvert.SerializeObject(packages, Formatting.Indented);
-                File.WriteAllText(ruta, updatedJson);
+                root.packages.Add(key, newPackage);
                 MessageBox.Show("Paquete guardado!");
             }
+
+            string updatedJson = JsonConvert.SerializeObject(root, Formatting.Indented);
+            File.WriteAllText(ruta, updatedJson);
 
             packageEditing = false;
             refreshDGV();
             emptyOffPanel();
         }
+
 
         // FINISHHH THIIIIIIIIS
         private void btnEdit_Click(object sender, EventArgs e)
@@ -228,22 +211,18 @@ namespace Sistema_de_Paqueteria
         {
             if (gridView.SelectedRows.Count > 0)
             {
-                int code = int.Parse(gridView.SelectedRows[0].Cells["P_Code"].Value.ToString());
-                //----------
+                string key = gridView.SelectedRows[0].Cells["P_Code"].Value.ToString();
+
                 string json = File.ReadAllText(ruta);
-                var packages = JsonConvert.DeserializeObject<Dictionary<string, Package>>(json);
+                var root = JsonConvert.DeserializeObject<RootData>(json) ?? new RootData();
 
-                if (packages == null)
+                if (root.packages != null && root.packages.ContainsKey(key))
                 {
-                    packages = new Dictionary<string, Package>();
-                }
-
-                if (packages.ContainsKey(code.ToString())) 
-                {
-                    packages.Remove(code.ToString());
-                    string updatedJson = JsonConvert.SerializeObject(packages, Formatting.Indented);
+                    root.packages.Remove(key);
+                    string updatedJson = JsonConvert.SerializeObject(root, Formatting.Indented);
                     File.WriteAllText(ruta, updatedJson);
                 }
+
                 refreshDGV();
                 MessageBox.Show("Paquete eliminado!");
             }
