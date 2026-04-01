@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnTop = new System.Windows.Forms.Panel();
             this.pnScreen = new System.Windows.Forms.Panel();
             this.tbFilter = new Bunifu.Framework.UI.BunifuMetroTextbox();
@@ -57,13 +56,14 @@
             this.lblStand1 = new System.Windows.Forms.Label();
             this.DragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.btnDash = new System.Windows.Forms.Button();
+            this.pbExport = new System.Windows.Forms.PictureBox();
             this.pbDecor1 = new System.Windows.Forms.PictureBox();
             this.pbExit = new System.Windows.Forms.PictureBox();
-            this.tbFilter = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.pnTop.SuspendLayout();
             this.pnScreen.SuspendLayout();
             this.pnManager.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbExport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDecor1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).BeginInit();
             this.SuspendLayout();
@@ -81,6 +81,7 @@
             // pnScreen
             // 
             this.pnScreen.BackColor = System.Drawing.SystemColors.Menu;
+            this.pnScreen.Controls.Add(this.pbExport);
             this.pnScreen.Controls.Add(this.btnDash);
             this.pnScreen.Controls.Add(this.tbFilter);
             this.pnScreen.Controls.Add(this.btnDelete);
@@ -349,10 +350,8 @@
             // 
             this.gridView.AllowUserToAddRows = false;
             this.gridView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Menu;
-            this.gridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Menu;
-            this.gridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Menu;
+            this.gridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.gridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridView.GridColor = System.Drawing.SystemColors.Menu;
             this.gridView.Location = new System.Drawing.Point(12, 154);
@@ -382,6 +381,34 @@
             this.DragControl.TargetControl = this.pnTop;
             this.DragControl.Vertical = true;
             // 
+            // btnDash
+            // 
+            this.btnDash.BackColor = System.Drawing.Color.BurlyWood;
+            this.btnDash.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDash.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnDash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDash.Font = new System.Drawing.Font("Bahnschrift SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDash.ForeColor = System.Drawing.Color.Black;
+            this.btnDash.Location = new System.Drawing.Point(603, 555);
+            this.btnDash.Name = "btnDash";
+            this.btnDash.Size = new System.Drawing.Size(191, 38);
+            this.btnDash.TabIndex = 30;
+            this.btnDash.Text = "Ver Panel de Usuario";
+            this.btnDash.UseVisualStyleBackColor = false;
+            this.btnDash.Click += new System.EventHandler(this.btnDash_Click);
+            // 
+            // pbExport
+            // 
+            this.pbExport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbExport.Image = global::Sistema_de_Paqueteria.Properties.Resources.decor4;
+            this.pbExport.Location = new System.Drawing.Point(453, 106);
+            this.pbExport.Name = "pbExport";
+            this.pbExport.Size = new System.Drawing.Size(45, 41);
+            this.pbExport.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbExport.TabIndex = 31;
+            this.pbExport.TabStop = false;
+            this.pbExport.Click += new System.EventHandler(this.pbExport_Click);
+            // 
             // pbDecor1
             // 
             this.pbDecor1.Image = global::Sistema_de_Paqueteria.Properties.Resources.decor1;
@@ -403,41 +430,6 @@
             this.pbExit.TabStop = false;
             this.pbExit.Click += new System.EventHandler(this.pbExit_Click);
             // 
-            // tbFilter
-            // 
-            this.tbFilter.BorderColorFocused = System.Drawing.Color.Blue;
-            this.tbFilter.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbFilter.BorderColorMouseHover = System.Drawing.Color.Blue;
-            this.tbFilter.BorderThickness = 3;
-            this.tbFilter.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbFilter.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.tbFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbFilter.isPassword = false;
-            this.tbFilter.Location = new System.Drawing.Point(505, 112);
-            this.tbFilter.Margin = new System.Windows.Forms.Padding(4);
-            this.tbFilter.Name = "tbFilter";
-            this.tbFilter.Size = new System.Drawing.Size(315, 35);
-            this.tbFilter.TabIndex = 29;
-            this.tbFilter.Text = "Código o Contenido...";
-            this.tbFilter.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.tbFilter.OnValueChanged += new System.EventHandler(this.tbFilter_OnValueChanged);
-            // 
-            // btnDash
-            // 
-            this.btnDash.BackColor = System.Drawing.Color.BurlyWood;
-            this.btnDash.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDash.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnDash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDash.Font = new System.Drawing.Font("Bahnschrift SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDash.ForeColor = System.Drawing.Color.Black;
-            this.btnDash.Location = new System.Drawing.Point(603, 555);
-            this.btnDash.Name = "btnDash";
-            this.btnDash.Size = new System.Drawing.Size(191, 38);
-            this.btnDash.TabIndex = 30;
-            this.btnDash.Text = "Ver Panel de Usuario";
-            this.btnDash.UseVisualStyleBackColor = false;
-            this.btnDash.Click += new System.EventHandler(this.btnDash_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -455,6 +447,7 @@
             this.pnManager.ResumeLayout(false);
             this.pnManager.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbExport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDecor1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).EndInit();
             this.ResumeLayout(false);
@@ -491,7 +484,7 @@
         private System.Windows.Forms.Button btnDelete;
         private Bunifu.Framework.UI.BunifuMetroTextbox tbFilter;
         private System.Windows.Forms.Button btnDash;
-
+        private System.Windows.Forms.PictureBox pbExport;
     }
 }
 

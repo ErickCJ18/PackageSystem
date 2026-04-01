@@ -1,4 +1,7 @@
-﻿using System;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,7 +12,6 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Newtonsoft.Json;
 
 namespace Sistema_de_Paqueteria
 {
@@ -108,7 +110,6 @@ namespace Sistema_de_Paqueteria
             }
 
             return lista;
-
         }
 
         //////////////////////
@@ -252,6 +253,64 @@ namespace Sistema_de_Paqueteria
             {
                 frm.Show();
             }
+        }
+
+        private void pbExport_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.Filter = "PDF files (*.pdf)|*.pdf";
+            saveDialog.FileName = "reporte_paquetes.pdf";
+            saveDialog.Title = "Guardar reporte";
+
+            if (saveDialog.ShowDialog() == DialogResult.OK)
+            {
+                exportPDF(saveDialog.FileName);
+            }
+        }
+
+        private void exportPDF(string fileName)
+        {
+            string json = File.ReadAllText(ruta);
+            var root = JsonConvert.DeserializeObject<RootData>(json) ?? new RootData();
+
+            if (root.packages == null)
+                root.packages = new Dictionary<string, Package>();
+
+            Document doc = new Document();
+            PdfWriter.GetInstance(doc, new FileStream(fileName, FileMode.Create)); 
+            doc.Open();
+
+            // Título
+            iTextSharp.text.Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 16f);
+            doc.Add(new Paragraph("Reporte de Paquetes", titleFont));
+            doc.Add(new Paragraph(" "));
+
+            // Tabla
+            PdfPTable tabla = new PdfPTable(5);
+            tabla.WidthPercentage = 100;
+
+            // Encabezados
+            iTextSharp.text.Font headerFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 10f);
+            tabla.AddCell(new PdfPCell(new Phrase("Código", headerFont)));
+            tabla.AddCell(new PdfPCell(new Phrase("Contenido", headerFont)));
+            tabla.AddCell(new PdfPCell(new Phrase("Término", headerFont)));
+            tabla.AddCell(new PdfPCell(new Phrase("Peso", headerFont)));
+            tabla.AddCell(new PdfPCell(new Phrase("Balance", headerFont)));
+
+            // Filas
+            foreach (var p in root.packages.Values)
+            {
+                tabla.AddCell(p.P_code.ToString());
+                tabla.AddCell(p.P_content);
+                tabla.AddCell(p.P_term);
+                tabla.AddCell(p.P_weight.ToString());
+                tabla.AddCell("$" + p.P_cost.ToString("F2"));
+            }
+
+            doc.Add(tabla);
+            doc.Close();
+
+            MessageBox.Show("Reporte exportado correctamente!");
         }
     }
 }
