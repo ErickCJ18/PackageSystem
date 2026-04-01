@@ -57,7 +57,6 @@
             this.lblStand1 = new System.Windows.Forms.Label();
             this.DragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.pbTracker = new System.Windows.Forms.PictureBox();
-            this.btnDash = new System.Windows.Forms.Button();
             this.pbExport = new System.Windows.Forms.PictureBox();
             this.pbDecor1 = new System.Windows.Forms.PictureBox();
             this.pbExit = new System.Windows.Forms.PictureBox();
@@ -65,7 +64,6 @@
             this.pnScreen.SuspendLayout();
             this.pnManager.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
-
             ((System.ComponentModel.ISupportInitialize)(this.pbTracker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDecor1)).BeginInit();
@@ -414,21 +412,6 @@
             this.pbTracker.TabIndex = 32;
             this.pbTracker.TabStop = false;
             this.pbTracker.Click += new System.EventHandler(this.pbTracker_Click);
-            // btnDash
-            // 
-            this.btnDash.BackColor = System.Drawing.Color.BurlyWood;
-            this.btnDash.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDash.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnDash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDash.Font = new System.Drawing.Font("Bahnschrift SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDash.ForeColor = System.Drawing.Color.Black;
-            this.btnDash.Location = new System.Drawing.Point(603, 555);
-            this.btnDash.Name = "btnDash";
-            this.btnDash.Size = new System.Drawing.Size(191, 38);
-            this.btnDash.TabIndex = 30;
-            this.btnDash.Text = "Ver Panel de Usuario";
-            this.btnDash.UseVisualStyleBackColor = false;
-            this.btnDash.Click += new System.EventHandler(this.btnDash_Click);
             // 
             // pbExport
             // 
@@ -520,7 +503,6 @@
         private System.Windows.Forms.Button btnDash;
         private System.Windows.Forms.PictureBox pbExport;
         private System.Windows.Forms.PictureBox pbTracker;
-
     }
 }
 

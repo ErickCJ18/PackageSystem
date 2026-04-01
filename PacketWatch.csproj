@@ -33,8 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.6.2\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu_UI_v1.52">
       <HintPath>F:\Archivos Erick\StoryLines\Launcher\Bunifu_UI_v1.52.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.5, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.5\lib\net461\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -60,16 +66,37 @@
     <Compile Include="Forms\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDashboard.Designer.cs">
+      <DependentUpon>frmDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmTracker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTracker.Designer.cs">
+      <DependentUpon>frmTracker.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDashboard.resx">
+      <DependentUpon>frmDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTracker.resx">
+      <DependentUpon>frmTracker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -100,6 +127,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\decor1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\decor3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\decor4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-señal-rfid-48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -121,7 +121,16 @@
   <data name="Close_app" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Close_app.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="decor4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\decor4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="decor1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\decor1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="decor3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\decor3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-señal-rfid-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-señal-rfid-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
