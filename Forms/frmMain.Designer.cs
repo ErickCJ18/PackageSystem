@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnTop = new System.Windows.Forms.Panel();
             this.pnScreen = new System.Windows.Forms.Panel();
+            this.btnDash = new System.Windows.Forms.Button();
             this.tbFilter = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -55,6 +56,7 @@
             this.gridView = new System.Windows.Forms.DataGridView();
             this.lblStand1 = new System.Windows.Forms.Label();
             this.DragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.pbTracker = new System.Windows.Forms.PictureBox();
             this.btnDash = new System.Windows.Forms.Button();
             this.pbExport = new System.Windows.Forms.PictureBox();
             this.pbDecor1 = new System.Windows.Forms.PictureBox();
@@ -63,6 +65,8 @@
             this.pnScreen.SuspendLayout();
             this.pnManager.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
+
+            ((System.ComponentModel.ISupportInitialize)(this.pbTracker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDecor1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).BeginInit();
@@ -81,6 +85,7 @@
             // pnScreen
             // 
             this.pnScreen.BackColor = System.Drawing.SystemColors.Menu;
+            this.pnScreen.Controls.Add(this.pbTracker);
             this.pnScreen.Controls.Add(this.pbExport);
             this.pnScreen.Controls.Add(this.btnDash);
             this.pnScreen.Controls.Add(this.tbFilter);
@@ -96,6 +101,22 @@
             this.pnScreen.Name = "pnScreen";
             this.pnScreen.Size = new System.Drawing.Size(1251, 627);
             this.pnScreen.TabIndex = 1;
+            // 
+            // btnDash
+            // 
+            this.btnDash.BackColor = System.Drawing.Color.BurlyWood;
+            this.btnDash.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDash.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnDash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDash.Font = new System.Drawing.Font("Bahnschrift SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDash.ForeColor = System.Drawing.Color.Black;
+            this.btnDash.Location = new System.Drawing.Point(603, 555);
+            this.btnDash.Name = "btnDash";
+            this.btnDash.Size = new System.Drawing.Size(191, 38);
+            this.btnDash.TabIndex = 30;
+            this.btnDash.Text = "Ver Panel de Usuario";
+            this.btnDash.UseVisualStyleBackColor = false;
+            this.btnDash.Click += new System.EventHandler(this.btnDash_Click);
             // 
             // tbFilter
             // 
@@ -381,6 +402,18 @@
             this.DragControl.TargetControl = this.pnTop;
             this.DragControl.Vertical = true;
             // 
+            // pbTracker
+            // 
+            this.pbTracker.BackColor = System.Drawing.SystemColors.GrayText;
+            this.pbTracker.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbTracker.Image = global::Sistema_de_Paqueteria.Properties.Resources.icons8_señal_rfid_48;
+            this.pbTracker.Location = new System.Drawing.Point(402, 106);
+            this.pbTracker.Name = "pbTracker";
+            this.pbTracker.Size = new System.Drawing.Size(45, 41);
+            this.pbTracker.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbTracker.TabIndex = 32;
+            this.pbTracker.TabStop = false;
+            this.pbTracker.Click += new System.EventHandler(this.pbTracker_Click);
             // btnDash
             // 
             this.btnDash.BackColor = System.Drawing.Color.BurlyWood;
@@ -447,6 +480,7 @@
             this.pnManager.ResumeLayout(false);
             this.pnManager.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTracker)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDecor1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).EndInit();
@@ -485,6 +519,8 @@
         private Bunifu.Framework.UI.BunifuMetroTextbox tbFilter;
         private System.Windows.Forms.Button btnDash;
         private System.Windows.Forms.PictureBox pbExport;
+        private System.Windows.Forms.PictureBox pbTracker;
+
     }
 }
 
