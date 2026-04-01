@@ -109,10 +109,6 @@ namespace Sistema_de_Paqueteria
 
             return lista;
 
-            if (root.packages == null)
-                root.packages = new Dictionary<string, Package>();
-
-            return root.packages.Values.ToList();
         }
 
         //////////////////////
@@ -246,6 +242,15 @@ namespace Sistema_de_Paqueteria
 
                 refreshDGV();
                 MessageBox.Show("Paquete eliminado!");
+            }
+        }
+
+        private void btnDash_Click(object sender, EventArgs e)
+        {
+            frmDashboard frm = new frmDashboard();
+            if (!frm.Visible)
+            {
+                frm.Show();
             }
         }
     }
