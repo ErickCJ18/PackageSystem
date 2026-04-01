@@ -71,22 +71,43 @@ namespace Sistema_de_Paqueteria
             gridView.Columns["P_ETA"].DefaultCellStyle.Format = "dd/MM/yyyy";
         }
 
+        // Filtro de busqueda que funciona por Codigo de paquete o su contenido
+        private void tbFilter_OnValueChanged(object sender, EventArgs e)
+        {
+            refreshDGV(tbFilter.Text.Trim());
+        }   
+
         //////////////////////
         //       CRUD       //
         //////////////////////
 
         // Actualiza el dataGridView
-        private void refreshDGV() 
+        private void refreshDGV(string filtro = "") 
         {
-            gridView.DataSource = readPackages();
+            gridView.DataSource = readPackages(filtro);
             DataGridViewStyling();
         }
 
         // Lee el JSON de paquetes y los retorna al DataGridView
-        private List<Package> readPackages()
+        private List<Package> readPackages(string filtro = "")
         {
             string json = File.ReadAllText(ruta);
             var root = JsonConvert.DeserializeObject<RootData>(json) ?? new RootData();
+
+            if (root.packages == null)
+                root.packages = new Dictionary<string, Package>();
+
+            var lista = root.packages.Values.ToList();
+
+            if (!string.IsNullOrWhiteSpace(filtro))
+            {
+                lista = lista.Where(p =>
+                    p.P_code.ToString().Contains(filtro) ||
+                    p.P_content.ToLower().Contains(filtro.ToLower())
+                ).ToList();
+            }
+
+            return lista;
 
             if (root.packages == null)
                 root.packages = new Dictionary<string, Package>();
